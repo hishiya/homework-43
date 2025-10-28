@@ -1,16 +1,66 @@
-# React + Vite
+# Проєкт: React Router v6
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Це навчальний проєкт, створений на React + Vite, що демонструє реалізацію клієнтської маршрутизації за допомогою бібліотеки `react-router-dom`.
 
-Currently, two official plugins are available:
+Проєкт використовує сучасний підхід до маршрутизації, рекомендований у версії v6 (`createBrowserRouter` та `RouterProvider`), для створення трьох сторінок: `Home`, `About` та `Contact`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Опис реалізації
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Проєкт демонструє ключові концепції `react-router-dom`:
 
-## Expanding the ESLint configuration
+1.  **Маршрути як дані:** Усі маршрути визначені у вигляді масиву `routesData` в окремому файлі (`Routes.jsx`). Такий підхід робить конфігурацію маршрутів чистою та легкою для масштабування.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2.  **Спільний Layout (Navbar):** Головний компонент `Application.jsx` ініціалізує `createBrowserRouter`. Він динамічно обгортає кожну сторінку компонентом `Navbar`, забезпечуючи спільний (shared) layout, який присутній на всіх сторінках.
+
+3.  **Динамічна навігація:** Компонент `Navbar.jsx` також читає масив `routesData` для автоматичного створення навігаційних посилань (`<Link>`). Це дозволяє додавати нові сторінки в одному місці (`Routes.jsx`), і навігація оновиться автоматично.
+
+4.  **Клієнтська навігація:** Використання компонента `<Link>` забезпечує переходи між сторінками без повного перезавантаження браузера, що є ключовою особливістю SPA (Single Page Application).
+
+## Стек технологій
+
+* **React**
+* **Vite**
+* **React Router DOM** (v6)
+
+---
+
+## Встановлення та запуск
+
+1.  **Клонуйте репозиторій:**
+    ```bash
+    # Замініть [URL] на посилання вашого репозиторію
+    git clone [URL-ВАШОГО-РЕПОЗИТОРІЮ]
+    ```
+
+2.  **Перейдіть до каталогу проєкту:**
+    ```bash
+    # Назва папки з вашого завдання
+    cd my-react-router-app
+    ```
+
+3.  **Встановіть базові залежності:**
+    ```bash
+    npm install
+    ```
+
+4.  **Встановіть `react-router-dom`:**
+    ```bash
+    # У вашому завданні вказано 'react-router', але для вебу потрібен 'react-router-dom'
+    npm install react-router-dom
+    ```
+
+5.  **Запустіть проєкт у режимі розробки:**
+    ```bash
+    npm run dev
+    ```
+
+    Проєкт буде доступний за адресою `http://localhost:5173/` (або іншим портом, вказаним у терміналі).
+
+---
+
+## Демо-версія
+
+Ви можете переглянути живу (live) демо-версію проєкту, розгорнуту на Vercel / Netlify:
+https://homework-43-five.vercel.app/
